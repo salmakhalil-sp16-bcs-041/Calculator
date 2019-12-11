@@ -1,0 +1,119 @@
+import React, { Component } from 'react';
+import { View,
+StyleSheet,
+Text,
+Button
+ } from 'react-native';
+
+export default class FlexDimensionsBasics extends Component {
+  constructor(){
+    super()
+    this.state={}
+  }
+  render() {
+    return (
+      // Try removing the `flex: 1` on the parent View.
+      // The parent will not have dimensions, so the children can't expand.
+      // What if you add `height: 300` instead of `flex: 1`?
+      <View style={Styles.container}>
+       <View style={Styles.result}>
+        <Text style={Styles.resultText}>11*11</Text>
+       </View>
+        <View style={Styles.calculation}>
+         <Text style={Styles.calculationText}>121</Text></View>
+         <View style={Styles.buttons}>
+          <View style={Styles.numbers}>
+             <View style={Styles.row}>
+             <Button title="1"/>
+               <Button title="2"/>
+                 <Button title="3"/>
+                 
+             </View>
+                <View style={Styles.row}>
+                  <Button title="4"/>
+                    <Button title="5"/>
+                      <Button title="6"/>
+         
+                        </View>
+                   <View style={Styles.row}>
+                     <Button title="7"/>
+                       <Button title="8"/>
+                         <Button title="9"/>
+                           </View>
+
+                            <View style={Styles.row}>
+                     <Button title="0"/>
+                       <Button title="."/>
+                         <Button title="#"/>
+                        
+                           </View>
+                           </View>
+           <View style={Styles.operations}>
+            <Button title="+"/>
+                         <Button title="-"/>
+                          <Button title="*"/>
+                         <Button title="/"/>
+                         
+           </View>
+      </View>
+      </View>
+    );
+  }
+}
+const Styles =StyleSheet.create({
+  container:{
+    flex:1
+    
+  },
+  calculationText:
+  {
+    fontSize:24,
+    color:'white',
+    
+  },
+   resultText:
+  {
+    fontSize:20,
+    color:'white'
+  },
+  result:{
+    flex:2,
+    backgroundColor:'red',
+    justifyContent:'center',
+   alignItems:'flex-end'
+  },
+  calculation:{
+    flex:1,
+    backgroundColor:'green',
+     justifyContent:'center',
+   alignItems:'flex-end'
+
+  },
+  buttons:{
+    flexGrow:7,
+    flexDirection:'row'
+    
+    //backgroundColor:'green'
+
+  },
+  numbers:{
+    flex:3,
+    backgroundColor:'pink'
+
+  },
+  operations:{
+    flex:1,
+    backgroundColor:'black',
+    justifyContent:'space-around'
+
+
+  },
+  row:
+  {
+    flexDirection:'row',
+    flex:1,
+    justifyContent:'space-around',
+    alignItems:'center'
+  }
+
+})
